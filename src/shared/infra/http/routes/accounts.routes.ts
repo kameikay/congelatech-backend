@@ -6,6 +6,7 @@ import { CreateServiceProviderController } from "@modules/accounts/serviceProvid
 import { ListServiceProviderController } from "@modules/accounts/serviceProvider/useCases/listServiceProvider/ListServiceProviderController";
 import { CreateOutcomeController } from "@modules/accounts/serviceProvider/useCases/createOutcome/CreateOutcomeController";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+import { ListOutcomesController } from "@modules/accounts/serviceProvider/useCases/listOutcomes/ListOutcomesController";
 
 const accountsRoutes = Router()
 
@@ -16,12 +17,14 @@ const createCustomerController = new CreateCustomerController()
 const listCustomerController = new ListCustomerController()
 
 const createOutcomesController = new CreateOutcomeController()
+const listOutcomesController = new ListOutcomesController()
 
 // Service Provider
 accountsRoutes.post("/service-provider", createServiceProviderController.handle)
 accountsRoutes.get("/service-provider", listServiceProviderController.handle)
 
 accountsRoutes.post("/outcomes", ensureAuthenticated, createOutcomesController.handle)
+accountsRoutes.get("/outcomes", ensureAuthenticated, listOutcomesController.handle)
 
 // Customer
 accountsRoutes.post("/customer", createCustomerController.handle)

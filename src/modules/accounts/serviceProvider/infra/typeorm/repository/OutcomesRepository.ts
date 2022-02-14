@@ -27,6 +27,12 @@ class OutcomesRepository implements IOutcomesRepository {
     return outcome
   }
 
+  async listAllOfThatServiceProvider(service_provider_id: string): Promise<Outcome[]> {
+    const all = await this.repository.find({ service_provider_id })
+
+    return all
+  }
+
 }
 
 export { OutcomesRepository }

@@ -10,4 +10,5 @@ export interface IOutcomesRepositoryDTO {
 export interface IOutcomesRepository {
   create({ service_provider_id, name, description, price }: IOutcomesRepositoryDTO): Promise<void>;
   findById(id: string): Promise<Outcome>;
+  listAllOfThatServiceProvider(service_provider_id: string): Promise<Outcome[]>
 }

@@ -20,6 +20,15 @@ class OutcomesRepositoryInMemory implements IOutcomesRepository {
     return outcome
   }
 
+  async listAllOfThatServiceProvider(service_provider_id: string): Promise<Outcome[]> {
+    const services = this.outcomes.map(outcome => {
+      if (outcome.service_provider_id === service_provider_id) {
+        return outcome
+      }
+    })
+    return services
+  }
+
 }
 
 export { OutcomesRepositoryInMemory }

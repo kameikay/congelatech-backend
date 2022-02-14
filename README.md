@@ -27,9 +27,3 @@ Requisitos para aplicação:
 - Chatbot para agendamento
 - Emissão de boleto
 - Emissão de nota fiscal
-
-A PENSAR: 
-
-- pensar como pegar o id, token ou algo para identificar de maneira automática o Service Provider que está registrando um outcome (headers?)
-
-- pensar como listar os outcomes apenas do service_provider que está solicitando (headers também? pelas query params?)
