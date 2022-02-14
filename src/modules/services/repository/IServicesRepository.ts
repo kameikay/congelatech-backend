@@ -1,3 +1,4 @@
+import { UpdateResult } from "typeorm";
 import { Service } from "../infra/typeorm/entities/Service";
 
 export interface ICreateServiceDTO {
@@ -15,6 +16,7 @@ interface IServicesRepository {
   list(): Promise<Service[]>;
   findById(id: string): Promise<Service>;
   findByType(type: string): Promise<Service>;
+  updateDate(id: string): Promise<void>;
 }
 
 export { IServicesRepository }

@@ -2,7 +2,6 @@ import { ICreateServiceDTO, IServicesRepository } from "@modules/services/reposi
 import { getRepository, Repository } from "typeorm";
 import { Service } from "../entities/Service";
 
-
 class ServicesRepository implements IServicesRepository {
   private repository: Repository<Service>
 
@@ -32,15 +31,18 @@ class ServicesRepository implements IServicesRepository {
   }
 
   async findById(id: string): Promise<Service> {
+    
     const service = await this.repository.findOne({ id })
-
     return service
   }
 
   async findByType(type: string): Promise<Service> {
     const service = await this.repository.findOne({ type })
-
     return service
+  }
+
+  async updateDate(id: string): Promise<void> {
+    await this.repository.update(id, { finished_at: new Date() })
   }
 
 }
