@@ -12,7 +12,7 @@ describe("Create service", () => {
 
   it("should be able to create a new service", async () => {
     const service = {
-      type: "Service Test",
+      type: "Test",
       description: "Service Description Test",
       air_quantity: 1,
       customer_id: "customer_id",
@@ -26,5 +26,6 @@ describe("Create service", () => {
     const createdService = await serviceRepositoryInMemory.findByType(service.type)
 
     expect(createdService).toHaveProperty("id")
+
   })
 })
