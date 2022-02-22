@@ -27,3 +27,12 @@ Requisitos para aplicação:
 - Chatbot para agendamento
 - Emissão de boleto
 - Emissão de nota fiscal
+
+VERIFICAR:
+
+[ ] na hora de criar um service, passar o customer_id e o service_provider_id de forma dinamica
+[ ] criar as tabelas de relação de forma dinamica (ServiceProvider_Customer, Customer_Service)
+[ ] criar um update (para editar) os dados dos serviços
+[ ] criar um update (para editar) os dados dos customers
+[ ] criar um update (para editar) os dados dos service providers
+[ ] integrar o WhatsApp API

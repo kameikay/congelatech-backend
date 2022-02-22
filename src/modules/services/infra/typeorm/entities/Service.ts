@@ -1,5 +1,7 @@
 import { v4 as uuidV4 } from "uuid";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm"
+import { Customer } from "@modules/accounts/customer/infra/typeorm/entities/Customer";
+import { ServiceProvider } from "@modules/accounts/serviceProvider/infra/typeorm/entities/ServiceProvider";
 
 @Entity("services")
 class Service {
@@ -9,10 +11,16 @@ class Service {
   @Column()
   type: string;
 
-  @Column()
-  customer_id: string;
+  @JoinColumn({
+    name: "customer_id"
+  })
+  @ManyToOne(() => Customer)
+  customer_id: Customer;
 
-  @Column()
+  @JoinColumn({
+    name: "service_provider_id"
+  })
+  @ManyToOne(() => ServiceProvider)
   service_provider_id: string;
 
   @Column()
